@@ -1,23 +1,23 @@
-# Define the build directory
 BUILD_DIR := build
-
-# Define the project name
 PROJECT_NAME := maubyengine
 
-# Targets
-.PHONY: all clean configure build run
 
-all: configure build
+.PHONY: all clean configure debug release run
+
+all: configure debug
 
 configure:
 	@mkdir -p $(BUILD_DIR)
 	cd $(BUILD_DIR) && cmake ..
 
-build:
-	cd $(BUILD_DIR) && cmake --build .
+debug:
+	cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Debug . && cmake --build .
+
+release:
+	cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Release . && cmake --build .
 
 run:
-	./$(BUILD_DIR)/demo
+	./$(BUILD_DIR)/Linux64/Debug/demo
 
 clean:
 	rm -rf $(BUILD_DIR)
