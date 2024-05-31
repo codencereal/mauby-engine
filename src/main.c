@@ -29,7 +29,7 @@ void processInput(GLFWwindow *window) {
     glfwSetWindowShouldClose(window, true);
 }
 
-int main() {
+int run() {
   if (!glfwInit()) {
     printf("GLFW initialisation failed\n");
     glfwTerminate();

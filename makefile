@@ -17,7 +17,7 @@ build:
 	cd $(BUILD_DIR) && cmake --build .
 
 run:
-	./$(BUILD_DIR)/$(PROJECT_NAME)
+	./$(BUILD_DIR)/demo
 
 clean:
 	rm -rf $(BUILD_DIR)

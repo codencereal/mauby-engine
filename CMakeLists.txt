@@ -13,6 +13,7 @@ include_directories(
   ${PROJECT_SOURCE_DIR}/deps/include/imgui
   ${PROJECT_SOURCE_DIR}/deps/include/imgui/backends
   ${PROJECT_SOURCE_DIR}/src/gui
+  ${PROJECT_SOURCE_DIR}/src/
 )
 
 file(GLOB_RECURSE ENGINE_SOURCES
@@ -27,13 +28,21 @@ file(GLOB_RECURSE INCLUDE_SOURCES
   ${PROJECT_SOURCE_DIR}/deps/include/imgui/backends/*.cpp
 )
 
-add_executable(${PROJECT_NAME}
+add_library(${PROJECT_NAME} SHARED
   ${PROJECT_SOURCE_DIR}/src/main.c
   ${ENGINE_SOURCES}
   ${INCLUDE_SOURCES}
 )
 
+add_executable(demo ${PROJECT_SOURCE_DIR}/src/demos/demo.c)
+
+# SET_TARGET_PROPERTIES(demo PROPERTIES LINK_FLAGS "-nostartfiles")
+
 target_link_libraries(${PROJECT_NAME} 
   glfw
   OpenGL::GL
+)
+
+target_link_libraries(demo
+  ${PROJECT_NAME}
 )
