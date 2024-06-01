@@ -122,6 +122,7 @@ int run() {
 	}
   
 	shutdown_gui();
+	glfwDestroyWindow(window);
 	glfwTerminate();
   return 0;
 }
