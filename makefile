@@ -11,7 +11,7 @@ configure:
 	cd $(BUILD_DIR) && cmake ..
 
 debug:
-	cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Debug . && cmake --build .
+	cd $(BUILD_DIR) && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug . && cmake --build .
 
 release:
 	cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Release . && cmake --build .
