@@ -61,7 +61,7 @@ int run() {
 	
 	init_gui(window);
 
-		unsigned int vertexShader;
+	unsigned int vertexShader;
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 	glCompileShader(vertexShader);
@@ -113,12 +113,12 @@ int run() {
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
- 		
+
 		render_gui();
 
 
-    glfwPollEvents();
-    glfwSwapBuffers(window);
+		glfwPollEvents();
+		glfwSwapBuffers(window);
 	}
   
 	shutdown_gui();
